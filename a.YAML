@@ -1,0 +1,4 @@
+invoice: 1
+date   : 2001-01-23
+bill-to: &ehud
+    given  : Chris
