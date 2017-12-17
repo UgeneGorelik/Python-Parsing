@@ -1,1 +1,1 @@
-Examples in parsing Writing Files in JSON XML YAML formats
+Examples in parsing files in JSON XML YAML formats
