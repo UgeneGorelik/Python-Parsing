@@ -1,6 +1,9 @@
+
+#Example of Basic parsing using json lib
+
 import json
 
-
+#creating file in Json format
 contacts= '''
     
     {
@@ -18,6 +21,8 @@ contacts= '''
   ]
 }
 '''
+
+#converting data to Dict structure and printing
 data=json.loads(contacts)
 print(data)
 

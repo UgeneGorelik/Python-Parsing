@@ -1,3 +1,5 @@
+#simple XML parse and search usinh xml.etree lib
+
 import os
 from xml.etree  import ElementTree
 
