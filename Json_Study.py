@@ -1,34 +1,50 @@
+#example on using and parsing Json files
 
-#Example of Basic parsing using json lib
+import  json
 
-import json
-
-#creating file in Json format
-contacts= '''
-    
+#declare string in json format
+people_string='''
     {
-  "people": [
-    {
-      "name": "john",
-      "abbreviation": "j",
-      "phones": ["205", "251"]
-    },
-      {
-          "name": "alex",
-          "abbreviation": "j",
-          "phones": ["205", "251"]
-      }
-  ]
-}
+        "people": [
+        {
+            "name": "avi",
+            "age": "13",
+            "license" : true
+        },
+        {
+            "name": "avi",
+            "age": "15" ,
+            "license" : false  
+        }
+    ]
+   } 
 '''
+#load string to be as json file
+data =json.loads(people_string)
 
-#converting data to Dict structure and printing
-data=json.loads(contacts)
-print(data)
+#as its like dict you can use it and print it like dict
+print(type(data['people']))
 
-for man in data['people']:
-     print(man['name'])
+#delete field in dict
+for person in data['people']:
+    del person['age']
 
-new_str=json.dumps(data,sort_keys=True)
+#create string from json object ident uset for beautifying the string and sort keys sorts the keys
+new_string=json.dumps(data,indent=2,sort_keys=True)
 
-print(new_str)
+# print(new_string)
+
+#open existing json file
+with open('states.json') as f:
+    data=json.load(f)
+
+for state in data['states']:
+    print(state['name'])
+
+for state in data['states']:
+    del state['area_codes']
+
+#return to file after beautifying it using ident
+with open('new_states.json','w') as f:
+    json.dump(data,f, indent=2)
+
